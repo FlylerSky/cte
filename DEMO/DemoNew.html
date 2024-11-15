@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công Cụ Mã Hóa Chữ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    textarea, button {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      resize: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Công Cụ Mã Hóa Chữ</h2>
+    <textarea id="inputText" rows="4" placeholder="Nhập chuỗi cần mã hóa"></textarea>
+    <button onclick="encodeText()">Mã hóa</button>
+    <textarea id="outputText" rows="4" placeholder="Kết quả sẽ hiển thị ở đây" readonly></textarea>
+  </div>
+
+  <script>
+    const encodeMap = {
+      "GH_": "NP",
+      "LP": "AR",
+      "C": "E"
+    };
+
+    function encodeText() {
+      const input = document.getElementById("inputText").value;
+      let output = input;
+
+      // Thay thế các cặp mã hóa trong chuỗi
+      Object.keys(encodeMap).forEach(key => {
+        const regex = new RegExp(key, "g");
+        output = output.replace(regex, encodeMap[key]);
+      });
+
+      // Hiển thị kết quả vào ô textarea kết quả
+      document.getElementById("outputText").value = output;
+    }
+  </script>
+</body>
+</html>

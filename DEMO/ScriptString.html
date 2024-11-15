@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công cụ mã hóa chữ</title>
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Công cụ mã hóa chữ</h2>
+        <input type="text" id="inputText" placeholder="Nhập văn bản để mã hóa">
+        <button onclick="encodeText()">Mã hóa</button>
+        <p><strong>Kết quả:</strong> <span id="resultText"></span></p>
+    </div>
+
+    <script>
+        // Các quy tắc mã hóa
+        const encodingRules = {
+            "AN": "EM",
+            "SE": "HI",
+            "QA": "EP"
+        };
+
+        // Hàm mã hóa văn bản
+        function encodeText() {
+            let inputText = document.getElementById("inputText").value;
+            let encodedText = inputText;
+
+            // Duyệt qua các quy tắc mã hóa và thay thế
+            for (const [key, value] of Object.entries(encodingRules)) {
+                const regex = new RegExp(key, 'g');
+                encodedText = encodedText.replace(regex, value);
+            }
+
+            // Hiển thị kết quả
+            document.getElementById("resultText").textContent = encodedText;
+        }
+    </script>
+</body>
+</html>

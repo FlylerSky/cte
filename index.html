@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://p1media.vercel.app/Global/Main.css">
+  <title>HTML</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+      <div id="overlay">
+        <div id="login-box">
+          <h2>Vui lòng nhập mã</h2>
+          <p id="thongbao">Giới hạn quyền truy cập</p>
+          <input type="password" id="password" placeholder="Nhập mã truy cập">
+          <button onclick="checkPassword()">Xác nhận</button>
+          <p id="error-message"></p>
+        </div>
+      </div>
+  
+  
+  <div id="head">
+    <div id="logo">
+    <h3>CTE1 (Public)</h3>  
+    </div>
+    <div id="menu">
+     <a href="./Menu.html"><h3>Menu</h3></a> 
+    </div>
+  </div>
+  <div id="Box">
+    
+    <div class="gt">
+      <h3>Trình tạo CTY22</h3>
+    </div>
+      
+    
+    <textarea id="input-text" placeholder="Nhập văn bản gốc để mã hóa > Nhấn Mã hóa để mã hóa"></textarea>
+      <button onclick="encode()">Mã hóa</button>
+      <textarea class="bd" id="output-text" readonly></textarea>
+  </div>
+</body>
+<script src="./MaHoa.js"></script>
+<script src="./Check.js"></script>
+</html>
