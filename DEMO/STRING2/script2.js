@@ -1,9 +1,33 @@
-function encode() {
-  const inputText = document.getElementById('input-text').value;
-  const outputText = document.getElementById('output-text');
+document.getElementById("encodeButton").addEventListener("click", function() {
+  const inputText = document.getElementById("inputText").value;
+  const outputText = encodeText(inputText);
+  document.getElementById("outputText").value = outputText;
+});
 
+function encodeText(text) {
   const mapping = {
-          
+            //9
+            "CH" : "KH",
+            "GH" : "NG",
+            "GI" : "NH",
+            "KH" : "PH",
+            "NG" : "TH",
+            "NH" : "TR",
+            "PH" : "TH",
+            "TH" : "CH",
+            "NGH" : "GI",
+            "TR" : "GH",
+            //10
+            "_CH": "NG",
+            "_NG": "NH",
+            "_NH": "CH",
+            //11
+            "/C" : "P",
+            "/P" : "T",
+            "/T" : "C",
+            "/M" : "N",
+            "/N" : "M",
+            "\\" : "\"",
            "A": "E",
            "B": "K",
            "C": "L",
@@ -208,14 +232,30 @@ function encode() {
            "7": "1",
            "8": "2",
            "9": "3",
-           
   };
-    
-      let encodedText = '';
-      for (let i = 0; i < inputText.length; i++) {
-        const char = inputText[i];
-        encodedText += mapping[char] || char;
+
+  let result = "";
+
+  let i = 0;
+  while (i < text.length) {
+    let matched = false;
+
+    // Check for substrings starting from longest matches in the mapping
+    for (const key in mapping) {
+      if (text.substring(i, i + key.length) === key) {
+        result += mapping[key];
+        i += key.length; // Move the pointer by the length of the matched key
+        matched = true;
+        break;
       }
-    
-      outputText.value = encodedText;
-      }
+    }
+
+    // If no match was found, add the original character
+    if (!matched) {
+      result += text[i];
+      i++;
+    }
+  }
+
+  return result;
+}

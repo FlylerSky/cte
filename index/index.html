@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1-Encryption</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<!--CONTENT-->
+
+<body>
+    <div id="Box">
+     
+        <h1>P1-Encryption</h1>
+        
+        <!--BỘ CHỌN MÃ -->
+        <select id="cipherSelect">
+            <option value="default">Defaut</option>
+            
+            <option value="QTE1">QTE1</option>
+            <option value="cte">CTE (Bảng mã CTE24)</option>
+        </select>
+        
+        <textarea id="inputText" placeholder="NGÔN NGỮ GỐC"></textarea>
+        
+        <button onclick="processText('encode')">Mã hóa</button>
+        <button onclick="processText('decode')">Giải mã</button>
+        
+        <textarea id="outputText" placeholder="Nhớ chọn bảng mã trước khi Nhấn GIẢI MÃ, TẠO MÃ" readonly></textarea> 
+    </div>
+
+
+
+<!-- BỘ HỢP MÃ -->
+    <script src="./scripts/defaultCipher.js"></script>
+    <script src="./scripts/QTE1.js"></script>
+    <script src="./scripts/cte.js"></script>
+    <script src="./scripts/app.js"></script>
+    
+    
+</body>
+</html>
+ 
